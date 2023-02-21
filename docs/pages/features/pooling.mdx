@@ -16,10 +16,9 @@ The easiest and by far most common way to use node-postgres is through a connect
 - The PostgreSQL server can only handle a [limited number of clients at a time](https://wiki.postgresql.org/wiki/Number_Of_Database_Connections). Depending on the available memory of your PostgreSQL server you may even crash the server if you connect an unbounded number of clients. _note: I have crashed a large production PostgreSQL server instance in RDS by opening new clients and never disconnecting them in a python application long ago. It was not fun._
 
 - PostgreSQL can only process one query at a time on a single connected client in a first-in first-out manner. If your multi-tenant web application is using only a single connected client all queries among all simultaneous requests will be pipelined and executed serially, one after the other. No good!
-
 ### Good news
 
-node-postgres ships with built-in connection pooling via the [pg-pool](/api/pool) module.
+node-postgres ships with built-in connection pooling via the [pg-pool](/apis/pool) module.
 
 ## Examples
 
